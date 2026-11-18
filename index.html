@@ -10,6 +10,7 @@
 <link rel="preload" as="image" href="img/bees/p-02.jpg">
 <link rel="preload" as="image" href="img/logic/p-01.jpg">
 <link rel="preload" as="image" href="img/venus/p03.jpg">
+<link rel="preload" as="image" href="img/artigo/capa.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -458,8 +459,8 @@ const P=[
   desc:"Produto de tecnologia social (UX e educação) contra a vulnerabilidade feminina. Idealizei e lidero um time multidisciplinar de 14 pessoas, com MVP validado com ONGs e a rede Enactus. Venceu o Prêmio ODS 16 no Enactus Brasil e ficou no Top 80 do Desafio LED.",
   stack:["UX","Educação","Identidade visual","Mídia kit"],
   skills:["Liderança de time de 14 pessoas","Validação de MVP com ONGs","Comunicação de impacto"]},
- {id:"artigo",title:"Poder na rede de IA",short:"Gephi · Análise de Redes Sociais",role:"Artigo · PUC-Campinas 2026",cover:null,ink:"light",w:"w6",
-  slides:seq("artigo",8),
+ {id:"artigo",title:"Poder na rede de IA",short:"Gephi · Análise de Redes Sociais",role:"Artigo · PUC-Campinas 2026",cover:"img/artigo/capa.jpg",ink:"light",w:"w6",
+  slides:["img/artigo/capa.jpg",...seq("artigo",20)],
   desc:"Mapeamento do ecossistema global de LLMs com Análise de Redes Sociais no Gephi. Mostra que as plataformas de modelos dominam o volume de conexões, mas quem controla o sistema são intermediários de litografia, dados e energia.",
   stack:["Gephi","Análise de Redes Sociais","Betweenness","Modularidade"],
   skills:["Pesquisa quantitativa","Leitura estratégica do mercado de IA","Escrita acadêmica"],}
@@ -538,13 +539,12 @@ function openP(i){
   $('m-skills').innerHTML=cur.skills.map(s=>`<li>${s}</li>`).join('');
   $('m-link').innerHTML=cur.link?`<a class="pill lime ext" href="${cur.link[1]}">${cur.link[0]} ↗</a>`:'';
   const lk=$('m-link').querySelector('a');if(lk)lk.onclick=()=>closeM();
-  $('viewer').style.aspectRatio=cur.id==='artigo'?'4/5':'16/9';
-  $('viewer').style.maxHeight=cur.id==='artigo'?'78vh':'';
-  $('viewer').style.margin=cur.id==='artigo'?'0 auto':'';
   $('m-thumbs').innerHTML=cur.slides.map((s,j)=>`<img src="${s}" data-j="${j}" alt="Slide ${j+1}">`).join('');
   show();M.classList.add('on');document.body.style.overflow='hidden';M.querySelector('.x').focus();
 }
 function show(){
+  const page=/\/p-\d+\.jpg$/.test(cur.slides[k])&&cur.id==='artigo';
+  $('viewer').style.aspectRatio=page?'4/5':'16/9';$('viewer').style.maxHeight=page?'78vh':'';$('viewer').style.margin=page?'0 auto':'';
   $('m-img').src=cur.slides[k];$('m-img').alt=`${cur.title}, slide ${k+1}`;
   $('m-count').textContent=`${k+1} / ${cur.slides.length}`;
   [...$('m-thumbs').children].forEach((t,j)=>{t.classList.toggle('on',j===k);if(j===k)t.scrollIntoView({block:'nearest',inline:'nearest'})});
