@@ -182,83 +182,6 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-/* ---------- research: Graph RAG ---------- */
-.lab{margin:0 32px;border-radius:28px;background:var(--green);color:#EDF2EF;padding:72px 44px 44px}
-.lab .k{font-size:14px;color:rgba(237,242,239,.6);margin-bottom:18px}
-.lab-head{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:end;margin-bottom:38px}
-.lab h2{font-size:clamp(52px,6.4vw,96px);font-weight:300;letter-spacing:-.045em;line-height:.95}
-.lab-lede{color:rgba(237,242,239,.7);font-size:17px;font-weight:300;max-width:600px;margin-top:22px;letter-spacing:-.015em}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.14)}
-.stats div{padding:16px 10px 0 0}
-.stats b{display:block;font-weight:300;font-size:46px;line-height:1;letter-spacing:-.04em}
-.stats span{font-size:13px;color:rgba(237,242,239,.6)}
-.lab-grid{display:grid;grid-template-columns:1fr 400px;gap:16px}
-.graph-wrap{position:relative;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;min-height:640px}
-#g-svg{display:block;width:100%;height:640px;cursor:grab}
-#g-svg:active{cursor:grabbing}
-.g-tools{position:absolute;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;z-index:2;pointer-events:none}
-.g-tools>*{pointer-events:auto}
-.seg{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:40px;padding:4px 4px 4px 14px;font-size:12.5px;color:rgba(237,242,239,.6)}
-.seg span{margin-right:6px}
-.seg button,.ghost{border:0;background:transparent;color:#EDF2EF;font-size:12.5px;padding:7px 13px;border-radius:40px;cursor:pointer}
-.seg button.on{background:var(--lime);color:var(--ink)}
-.ghost{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}
-.legend{position:absolute;left:16px;bottom:14px;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:rgba(237,242,239,.7);max-width:72%}
-.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
-.legend i.ln{width:16px;height:2px;border-radius:0;vertical-align:3px}
-.node-card{position:absolute;right:14px;top:64px;width:min(300px,80%);background:#fff;color:var(--ink);border-radius:18px;padding:18px 18px 12px;font-size:13px;box-shadow:0 24px 48px -16px rgba(0,0,0,.55);max-height:62%;overflow:auto}
-.node-card h4{font-weight:300;font-size:28px;letter-spacing:-.035em;line-height:1}
-.node-card .sub{color:var(--mute);font-size:12px;margin:6px 0 12px}
-.node-card .kv{display:flex;gap:18px;margin-bottom:10px;color:var(--mute)}
-.node-card .kv b{font-size:20px;font-weight:400;display:block;color:var(--ink)}
-.node-card ul{list-style:none;border-top:1px solid var(--line)}
-.node-card li{padding:7px 0;border-bottom:1px solid var(--line);line-height:1.35}
-.node-card .x2{position:absolute;top:10px;right:12px;border:0;background:none;font-size:18px;cursor:pointer;color:var(--ink)}
-.node-card .ask{margin-top:10px;border:0;background:var(--lime);color:var(--ink);border-radius:40px;padding:8px 14px;font-size:12.5px;cursor:pointer}
-.link{stroke-opacity:.5;transition:stroke-opacity .3s,stroke-width .3s}
-.node circle{stroke:var(--green);stroke-width:2;transition:opacity .3s}
-.node text{fill:#EDF2EF;font-size:11px;pointer-events:none;paint-order:stroke;stroke:#163731;stroke-width:3px;font-family:"Inter Tight",sans-serif}
-.dim .link{stroke-opacity:.06}
-.dim .node{opacity:.16}
-.dim .node.hot,.dim .link.hot{opacity:1;stroke-opacity:1}
-.link.hot{stroke-width:2.6}
-.node.hot circle{stroke:#fff;stroke-width:2.5}
-.node.pulse circle{animation:pulse 1.2s ease-out}
-@keyframes pulse{0%{stroke-width:11;stroke:#E4F23C}100%{stroke-width:2.5}}
-.rag{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:20px;display:flex;flex-direction:column;min-height:640px;max-height:780px}
-.rag-label{font-size:13px;color:rgba(237,242,239,.6);display:block;margin-bottom:10px}
-.rag-input{display:flex;background:#fff;border-radius:40px;padding:5px}
-.rag-input input{flex:1;border:0;background:transparent;font:inherit;font-size:15px;padding:9px 14px;color:var(--ink);outline:none;min-width:0}
-.rag-input button{width:40px;height:40px;border-radius:50%;border:0;background:var(--lime);color:var(--ink);font-size:17px;cursor:pointer}
-.rag-input button:disabled{opacity:.5;cursor:wait}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px}
-.chips button{border:1px solid rgba(255,255,255,.16);background:transparent;color:rgba(237,242,239,.85);border-radius:40px;font-size:12.5px;padding:7px 12px;cursor:pointer;text-align:left}
-.chips button:hover{background:#fff;color:var(--ink)}
-.mode{font-size:11.5px;color:rgba(237,242,239,.5);margin:10px 0;display:flex;align-items:center;gap:6px}
-.mode::before{content:"";width:7px;height:7px;border-radius:50%;background:rgba(237,242,239,.4)}
-.mode.live::before{background:var(--lime);box-shadow:0 0 0 3px rgba(228,242,60,.2)}
-.trace{list-style:none;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;color:rgba(237,242,239,.55);margin-bottom:10px}
-.trace li{padding:3px 0;animation:fade .3s}
-.trace li b{color:var(--lime);font-weight:500}
-.answer{font-size:16px;font-weight:300;line-height:1.55;color:#EDF2EF;overflow:auto;flex:1 1 auto;min-height:80px;letter-spacing:-.012em}
-.answer b{font-weight:500}
-.answer .muted{color:rgba(237,242,239,.45)}
-.answer sup{color:var(--lime);font-weight:600;font-size:10px;cursor:pointer;margin-left:1px}
-.evidence{border-top:1px solid rgba(255,255,255,.1);margin-top:12px;padding-top:10px;overflow:auto;max-height:230px;font-size:12.5px}
-.evidence h5{font-size:12px;color:rgba(237,242,239,.5);font-weight:400;margin-bottom:6px}
-.evidence div{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(237,242,239,.7);line-height:1.4}
-.evidence div b{color:#EDF2EF;font-weight:500}
-.evidence div em{color:var(--lime);font-style:normal;font-weight:600;margin-right:4px}
-.evidence a{color:rgba(237,242,239,.55);font-size:11px}
-.evidence div.flash{background:rgba(228,242,60,.1)}
-.lab-note{color:rgba(237,242,239,.5);font-size:12.5px;margin-top:18px;max-width:900px}
-@media (max-width:1000px){
-  .lab{margin:0 12px;padding:48px 18px 24px}
-  .lab-head,.lab-grid{grid-template-columns:1fr}
-  .graph-wrap{min-height:440px}#g-svg{height:440px}
-  .rag{min-height:0;max-height:none}
-  .stats b{font-size:32px}
-}
 </style>
 </head>
 <body>
@@ -273,11 +196,9 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
       <a href="#sobre" data-s="sobre">Sobre mim</a>
       <a href="#por-onde-ando" data-s="por-onde-ando">Por onde ando</a>
       <a href="#projetos" data-s="projetos">O que construo</a>
-      <a href="#pesquisa" data-s="pesquisa">Pesquisa</a>
     </nav>
   </div>
   <div class="nav-r">
-    <a class="pill white" href="#pesquisa">Grafo de IA</a>
     <a class="pill lime" href="curriculo-livia-cardoso.pdf" target="_blank" rel="noopener">Currículo ↗</a>
   </div>
 </header>
@@ -327,47 +248,7 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
   <div class="bento" id="bento"></div>
 </section>
 
-<div style="height:140px"></div>
-<section class="lab" id="pesquisa">
-  <div class="lab-head">
-    <div>
-      <div class="k">Pesquisa ao vivo · Graph RAG</div>
-      <h2>O ecossistema de IA, consultável.</h2>
-      <p class="lab-lede">A base do meu artigo sobre poder e intermediação em LLMs, transformada em grafo. Pergunte em português: o sistema encontra as entidades, percorre vizinhanças e caminhos em tempo real, acende o subgrafo usado e responde citando cada relação com a fonte.</p>
-    </div>
-    <div class="stats" id="g-stats"></div>
-  </div>
-  <div class="lab-grid">
-    <div class="graph-wrap">
-      <div class="g-tools">
-        <div class="seg" role="group" aria-label="Tamanho dos nós">
-          <span>Tamanho por</span>
-          <button class="on" data-size="deg">Grau</button>
-          <button data-size="btw">Intermediação</button>
-        </div>
-        <button class="ghost" id="g-reset">Limpar</button>
-      </div>
-      <svg id="g-svg" role="img" aria-label="Grafo do ecossistema de IA"></svg>
-      <div class="legend" id="g-legend"></div>
-      <div class="node-card" id="g-node" hidden></div>
-    </div>
-    <aside class="rag">
-      <form id="rag-form" autocomplete="off">
-        <label for="rag-q" class="rag-label">Pergunte ao grafo</label>
-        <div class="rag-input">
-          <input id="rag-q" placeholder="Ex.: Quem conecta a Anthropic ao Pentágono?">
-          <button type="submit" aria-label="Perguntar">↑</button>
-        </div>
-      </form>
-      <div class="chips" id="rag-chips"></div>
-      <div class="mode" id="rag-mode">Recuperação no grafo · resposta por regras</div>
-      <ol class="trace" id="rag-trace"></ol>
-      <div class="answer" id="rag-answer"><p class="muted">As etapas de recuperação aparecem aqui enquanto o grafo acende.</p></div>
-      <div class="evidence" id="rag-ev"></div>
-    </aside>
-  </div>
-  <p class="lab-note">Amostra de <span id="g-n-edges"></span> relações da base do artigo, com foco em Anthropic, Google, Meta e Microsoft. O estudo completo no Gephi tem 208 atores e 344 relações. Grau, intermediação e comunidades (Louvain) são recalculados sobre esta amostra. Os três nós do Departamento de Defesa dos EUA foram unificados em “Pentágono (DoD)”.</p>
-</section>
+
 
 <footer>
   <div>
@@ -433,12 +314,11 @@ const P=[
   desc:"Produto de tecnologia social (UX e educação) contra a vulnerabilidade feminina. Idealizei e lidero um time multidisciplinar de 14 pessoas, com MVP validado com ONGs e a rede Enactus. Venceu o Prêmio ODS 16 no Enactus Brasil e ficou no Top 80 do Desafio LED.",
   stack:["UX","Educação","Identidade visual","Mídia kit"],
   skills:["Liderança de time de 14 pessoas","Validação de MVP com ONGs","Comunicação de impacto"]},
- {id:"artigo",title:"Poder na rede de IA",short:"Pesquisa · Gephi + Graph RAG",role:"Artigo · PUC-Campinas 2026",cover:null,ink:"light",w:"w6",
+ {id:"artigo",title:"Poder na rede de IA",short:"Pesquisa · Gephi",role:"Artigo · PUC-Campinas 2026",cover:null,ink:"light",w:"w6",
   slides:seq("artigo",8),
   desc:"Mapeamento do ecossistema global de LLMs com Análise de Redes Sociais no Gephi. Mostra que as plataformas de modelos dominam o volume de conexões, mas quem controla o sistema são intermediários de litografia, dados e energia.",
-  stack:["Gephi","Análise de Redes Sociais","Betweenness","Louvain","D3.js","Claude (tool use)"],
-  skills:["Pesquisa quantitativa","Leitura estratégica do mercado de IA","Escrita acadêmica","Graph RAG sobre a base da pesquisa"],
-  link:["Consultar o grafo ao vivo","#pesquisa"]}
+  stack:["Gephi","Análise de Redes Sociais","Betweenness","Modularidade"],
+  skills:["Pesquisa quantitativa","Leitura estratégica do mercado de IA","Escrita acadêmica"],}
 ];
 const MARK='<svg viewBox="0 0 24 24" fill="none"><path d="M5 3v15.5h14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><circle cx="17.5" cy="6.5" r="2.6" fill="currentColor"/></svg>';
 
@@ -487,7 +367,7 @@ const bento=$('bento');
 P.forEach((p,i)=>{
   const t=document.createElement('button');t.className=`tile ${p.w}${p.cover?'':' dark'}`;t.setAttribute('aria-label',`Abrir ${p.title}`);
   t.innerHTML=(p.cover?`<div class="stage"><img src="${p.cover}" alt="" loading="lazy"></div>`:
-    `<div class="big">Poder, dependência e intermediação no ecossistema global de IA<small>Artigo com Análise de Redes Sociais, agora também consultável como Graph RAG.</small></div>`)+
+    `<div class="big">Poder, dependência e intermediação no ecossistema global de IA<small>Artigo com Análise de Redes Sociais no Gephi sobre quem controla o ecossistema de LLMs.</small></div>`)+
     `<div class="tag"><span>${p.title}</span><span class="k" style="${p.cover?'':'color:rgba(237,242,239,.6)'}">${p.short}</span></div><span class="go">↗</span>`;
   t.onclick=()=>openP(i);bento.appendChild(t);
 });
@@ -503,6 +383,7 @@ function openP(i){
   const lk=$('m-link').querySelector('a');if(lk)lk.onclick=()=>closeM();
   $('viewer').style.aspectRatio=cur.id==='artigo'?'4/5':'16/9';
   $('viewer').style.maxHeight=cur.id==='artigo'?'78vh':'';
+  $('viewer').style.margin=cur.id==='artigo'?'0 auto':'';
   $('m-thumbs').innerHTML=cur.slides.map((s,j)=>`<img src="${s}" data-j="${j}" alt="Slide ${j+1}">`).join('');
   show();M.classList.add('on');document.body.style.overflow='hidden';M.querySelector('.x').focus();
 }
@@ -565,235 +446,7 @@ addEventListener('keydown',e=>{
 /* nav state */
 const links=[...document.querySelectorAll('.nav-links a')];
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.dataset.s===en.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
-['home','projetos','pesquisa','sobre','por-onde-ando'].forEach(id=>io.observe($(id)));
+['home','sobre','por-onde-ando','projetos'].forEach(id=>io.observe($(id)));
 </script>
-<script>function initGraph(){
-/* ===== Graph RAG ===== */
-(function(){
-const DATA={"meta": {"nodes": 30, "edges": 31, "modularity": 0.663, "communities": 4, "density": 0.067, "diameter": 5, "components": 3}, "nodes": [{"id": "Anthropic", "deg": 7, "btw": 0.165, "comm": 2, "nature": "Empresa Privada", "sector": "Inteligência Artificial"}, {"id": "Microsoft", "deg": 3, "btw": 0.0345, "comm": 2, "nature": "Empresa Privada", "sector": "Tecnologia"}, {"id": "NVIDIA", "deg": 1, "btw": 0.0, "comm": 2, "nature": "Empresa Privada", "sector": "Semicondutores"}, {"id": "Snowflake", "deg": 1, "btw": 0.0, "comm": 2, "nature": "Empresa Privada", "sector": "Tecnologia"}, {"id": "Pentágono (DoD)", "deg": 3, "btw": 0.0862, "comm": 0, "nature": "Governo", "sector": "Setor Público"}, {"id": "Accenture", "deg": 2, "btw": 0.0517, "comm": 0, "nature": "Empresa Privada", "sector": "Consultoria"}, {"id": "Deloitte", "deg": 1, "btw": 0.0, "comm": 2, "nature": "Empresa Privada", "sector": "Consultoria"}, {"id": "Google DeepMind", "deg": 7, "btw": 0.1502, "comm": 0, "nature": "Empresa Privada", "sector": "Inteligência Artificial"}, {"id": "Governo do Reino Unido", "deg": 1, "btw": 0.0, "comm": 0, "nature": "Governo", "sector": "Setor Público"}, {"id": "Governo de Singapura", "deg": 1, "btw": 0.0, "comm": 0, "nature": "Governo", "sector": "Setor Público"}, {"id": "Agile Robots", "deg": 1, "btw": 0.0, "comm": 0, "nature": "Empresa Privada", "sector": "Robótica"}, {"id": "Apptronik", "deg": 1, "btw": 0.0, "comm": 0, "nature": "Empresa Privada", "sector": "Robótica"}, {"id": "Google Cloud", "deg": 4, "btw": 0.0148, "comm": 3, "nature": "Infraestrutura/Cloud", "sector": "Cloud"}, {"id": "Merck", "deg": 1, "btw": 0.0, "comm": 3, "nature": "Empresa Privada", "sector": "Farmacêutico"}, {"id": "CVS Health", "deg": 1, "btw": 0.0, "comm": 3, "nature": "Empresa Privada", "sector": "Saúde"}, {"id": "Home Depot", "deg": 1, "btw": 0.0, "comm": 3, "nature": "Empresa Privada", "sector": "Varejo"}, {"id": "Unilever", "deg": 1, "btw": 0.0, "comm": 3, "nature": "Empresa Privada", "sector": "Bens de Consumo"}, {"id": "ASCO (Oncologia)", "deg": 1, "btw": 0.0, "comm": 0, "nature": "Associação/Consórcio", "sector": "Saúde"}, {"id": "Meta", "deg": 8, "btw": 0.069, "comm": 1, "nature": "Empresa Privada", "sector": "Tecnologia"}, {"id": "Reliance Industries", "deg": 1, "btw": 0.0, "comm": 1, "nature": "Empresa Privada", "sector": "Tecnologia"}, {"id": "IBM", "deg": 1, "btw": 0.0, "comm": 1, "nature": "Empresa Privada", "sector": "Tecnologia"}, {"id": "Red Hat", "deg": 1, "btw": 0.0, "comm": 1, "nature": "Empresa Privada", "sector": "Tecnologia"}, {"id": "Dell Technologies", "deg": 1, "btw": 0.0, "comm": 1, "nature": "Empresa Privada", "sector": "Tecnologia"}, {"id": "Block (Cash App)", "deg": 1, "btw": 0.0, "comm": 1, "nature": "Empresa Privada", "sector": "Financeiro"}, {"id": "NVIDIA NeMo", "deg": 1, "btw": 0.0, "comm": 1, "nature": "Infraestrutura/Cloud", "sector": "Inteligência Artificial"}, {"id": "WhatsApp Business", "deg": 1, "btw": 0.0, "comm": 1, "nature": "Empresa Privada", "sector": "Tecnologia"}, {"id": "Cerebras", "deg": 1, "btw": 0.0, "comm": 1, "nature": "Empresa Privada", "sector": "Semicondutores"}, {"id": "Google", "deg": 1, "btw": 0.0, "comm": 0, "nature": "Empresa Privada", "sector": "Tecnologia"}, {"id": "SAP", "deg": 2, "btw": 0.0, "comm": 2, "nature": "Empresa Privada", "sector": "Tecnologia"}, {"id": "Salesforce", "deg": 1, "btw": 0.0, "comm": 2, "nature": "Empresa Privada", "sector": "Tecnologia"}], "edges": [{"id": 1, "source": "Anthropic", "target": "Microsoft", "rel": "fornece para", "directed": true, "why": "Anthropic comprometeu $30 bi em capacidade Azure. Claude disponível na plataforma Microsoft", "detail": "Parceria multi-cloud tri-nativa com comprometimento de $30 bilhões em compute Azure", "url": "https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships"}, {"id": 2, "source": "Anthropic", "target": "NVIDIA", "rel": "coopera com", "directed": false, "why": "Parceria tecnológica profunda para suporte à arquitetura Blackwell em modelos Claude", "detail": "Integração de hardware de nova geração para escalar Claude em clusters Blackwell", "url": "https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships"}, {"id": 3, "source": "NVIDIA", "target": "Anthropic", "rel": "investe em", "directed": true, "why": "NVIDIA comprometeu até $10 bilhões na rodada de financiamento da Anthropic (Nov/2025)", "detail": "Investimento estratégico para garantir otimização de modelos Claude na arquitetura Blackwell", "url": "https://pplware.sapo.pt/inteligencia-artificial/investimentos-circulares-nao-param-microsoft-nvidia-e-anthropic-fecham-novo-acordo/amp/"}, {"id": 4, "source": "Microsoft", "target": "Anthropic", "rel": "investe em", "directed": true, "why": "Microsoft comprometeu até $5 bilhões na Anthropic. Anthropic compra $30 bi de Azure", "detail": "Aliança estratégica com comprometimento bilateral de capital e infraestrutura", "url": "https://tagteam.harvard.edu/hub_feeds/3415/feed_items/16904726"}, {"id": 5, "source": "Anthropic", "target": "Snowflake", "rel": "coopera com", "directed": false, "why": "Parceria expandida (Dez/2025): Claude integrado ao Cortex AI do Snowflake em todas as clouds", "detail": "Claude no Snowflake Cortex AI tornou-se o produto de mais rápido crescimento na história da Snowflake", "url": "https://www.snowflake.com/en/news/press-releases/snowflake-and-anthropic-accelerate-enterprise-ai-adoption-driven-by-rising-demand-for-governed-ai/"}, {"id": 6, "source": "Anthropic", "target": "Pentágono (DoD)", "rel": "concorre com", "directed": false, "why": "Anthropic foi designada risco à cadeia de suprimentos de segurança nacional pelos EUA (Mar/2026)", "detail": "Primeira empresa americana a receber essa designação após recusar uso de Claude em armas autônomas e vigilância doméstica em massa", "url": "https://thenextweb.com/news/anthropic-commits-100m-to-claude-partner-network"}, {"id": 7, "source": "Anthropic", "target": "Accenture", "rel": "coopera com", "directed": false, "why": "Accenture integra rede Claude Partner Network para implantação enterprise de Claude", "detail": "Parceiro estratégico para consultoria e implantação de IA em grandes corporações globais", "url": "https://anthropic.com/news/claude-partner-network"}, {"id": 8, "source": "Anthropic", "target": "Deloitte", "rel": "coopera com", "directed": false, "why": "Deloitte integra rede Claude Partner Network para implantação enterprise", "detail": "Parceiro certificado para levar Claude de prova de conceito à produção em empresas Fortune 500", "url": "https://anthropic.com/news/claude-partner-network"}, {"id": 9, "source": "Google DeepMind", "target": "Governo do Reino Unido", "rel": "coopera com", "directed": false, "why": "Parceria nacional em IA com foco em ciência, energia limpa e educação (Dez/2025)", "detail": "Cientistas britânicos recebem acesso prioritário a AlphaGenome, AlphaEvolve e WeatherNext", "url": "https://deepmind.google/blog/strengthening-our-partnership-with-the-uk-government-to-support-prosperity-and-security-in-the-ai-era/"}, {"id": 10, "source": "Google DeepMind", "target": "Governo de Singapura", "rel": "coopera com", "directed": false, "why": "Parceria em saúde, educação e sustentabilidade. Google investe $5 bi na infraestrutura local (Mai/2026)", "detail": "Parceria Nacional de IA com meta de agregar $2,5 bi em valor ao PIB de Singapura até 2040", "url": "https://blockchain.news/news/google-deepmind-singapore-ai-partnership"}, {"id": 11, "source": "Google DeepMind", "target": "Agile Robots", "rel": "coopera com", "directed": false, "why": "Integração de modelos Gemini Robotics em robôs industriais da Agile Robots (Mar/2026)", "detail": "Parceria de pesquisa para desenvolver robôs com raciocínio avançado para ambientes industriais", "url": "https://www.cnbc.com/2026/03/24/google-agile-robots-ai-robotics.html"}, {"id": 12, "source": "Google DeepMind", "target": "Apptronik", "rel": "coopera com", "directed": false, "why": "Parceria para construir robôs humanoides de nova geração com Gemini 2.0 (2025)", "detail": "Aliança estratégica em robótica humanoide impulsionada por modelos fundacionais Gemini", "url": "https://aibusiness.com/robotics/google-partners-with-agile-robots-in-ai-robotics-push"}, {"id": 13, "source": "Google DeepMind", "target": "Pentágono (DoD)", "rel": "coopera com", "directed": false, "why": "Google expandiu acesso ao Gemini para trabalho classificado no Departamento de Defesa dos EUA", "detail": "Fornecimento de Gemini for Government ao DoD para planejamento operacional e tarefas administrativas", "url": "https://www.executivegov.com/articles/google-gemini-gov-pentagon-genai-mil"}, {"id": 14, "source": "Google Cloud", "target": "Merck", "rel": "fornece para", "directed": true, "why": "Parceria de $1 bilhão para implantar plataforma agêntica Gemini Enterprise em P&D, manufatura e operações da Merck (Abr/2026)", "detail": "Maior contrato farmacêutico de IA da história: 75.000 funcionários da Merck com acesso à plataforma Gemini", "url": "https://www.merck.com/news/merck-and-google-cloud-partner-to-accelerate-agentic-ai-enterprise-transformation/"}, {"id": 15, "source": "Google Cloud", "target": "CVS Health", "rel": "fornece para", "directed": true, "why": "CVS lançou Health100 com IA agêntica Gemini integrada para engajamento de saúde do consumidor", "detail": "Plataforma de saúde integrada com IA generativa impulsionada pelo Google Cloud", "url": "https://www.healthcarefinancenews.com/news/google-cloud-showcase-how-gemini-powered-ai-agents-are-transforming-healthcare-himss26"}, {"id": 16, "source": "Google Cloud", "target": "Home Depot", "rel": "fornece para", "directed": true, "why": "Parceria de 10+ anos expandida com Gemini Enterprise para Magic Apron e agentes de voz (2026)", "detail": "IA agêntica integrada a canais de atendimento online, telefônico e presencial", "url": "https://cloud.google.com/blog/topics/google-cloud-next/welcome-to-google-cloud-next26"}, {"id": 17, "source": "Google Cloud", "target": "Unilever", "rel": "fornece para", "directed": true, "why": "Unilever implanta agentes Gemini Enterprise em toda a organização para geração de demanda e atendimento (2026)", "detail": "Escala de agentes de IA para 3,7 bilhões de consumidores finais da Unilever", "url": "https://cloud.google.com/blog/topics/google-cloud-next/welcome-to-google-cloud-next26"}, {"id": 18, "source": "Google DeepMind", "target": "ASCO (Oncologia)", "rel": "fornece para", "directed": true, "why": "Gemini Enterprise entrega conhecimento oncológico a 50.000 profissionais da ASCO globalmente", "detail": "IA médica especializada para oncologistas em escala global", "url": "https://cloud.google.com/blog/topics/google-cloud-next/welcome-to-google-cloud-next26"}, {"id": 19, "source": "Meta", "target": "Reliance Industries", "rel": "coopera com", "directed": false, "why": "Joint venture com RIL para criar soluções Llama para empresas indianas em vendas, TI e atendimento (Ago/2025)", "detail": "Expansão estratégica no maior mercado emergente do mundo com parceiro de infraestrutura digital líder", "url": "https://about.fb.com/news/2025/08/accelerating-indias-ai-adoption-a-strategic-partnership-with-reliance-industries-to-build-llama-based-enterprise-ai-solutions/"}, {"id": 20, "source": "Meta", "target": "IBM", "rel": "coopera com", "directed": false, "why": "Llama integrado ao catálogo de modelos watsonx.AI da IBM para governos e telecoms", "detail": "Llama já utilizado por governos locais, operadoras e times de futebol via plataforma IBM", "url": "https://ai.meta.com/blog/future-of-ai-built-with-llama/"}, {"id": 21, "source": "Meta", "target": "Red Hat", "rel": "coopera com", "directed": false, "why": "Colaboração para avanço de IA open source enterprise. Red Hat fornece suporte Dia 0 para Llama 4 no vLLM", "detail": "Llama Stack integrado ao Red Hat AI para agentes e RAG em produção enterprise", "url": "https://markets.financialcontent.com/pennwell.cabling/article/bizwire-2025-5-20-red-hat-and-meta-collaborate-to-advance-open-source-ai-for-enterprise"}, {"id": 22, "source": "Meta", "target": "Dell Technologies", "rel": "coopera com", "directed": false, "why": "Dell integra Llama Stack nas novas arquiteturas de infraestrutura de IA de próxima geração", "detail": "Padronização de servidores Dell para inferência de modelos Llama em escala enterprise", "url": "https://ai.meta.com/blog/llamacon-llama-news/"}, {"id": 23, "source": "Meta", "target": "Block (Cash App)", "rel": "fornece para", "directed": true, "why": "Block integra Llama nos sistemas de suporte ao cliente do Cash App", "detail": "Customização de modelos open source para preservar privacidade de dados do cliente", "url": "https://ai.meta.com/blog/future-of-ai-built-with-llama/"}, {"id": 24, "source": "Meta", "target": "NVIDIA NeMo", "rel": "coopera com", "directed": false, "why": "Integração de Llama Stack com NVIDIA NeMo Microservices (LlamaCon 2025)", "detail": "Pipeline de treinamento e ajuste fino de Llama 4 otimizado para hardware NVIDIA", "url": "https://ai.meta.com/blog/llamacon-llama-news/"}, {"id": 25, "source": "Meta", "target": "WhatsApp Business", "rel": "fornece para", "directed": true, "why": "Meta Business Agent lançado no WhatsApp, Messenger e Instagram (Jun/2026)", "detail": "Agente de IA para atendimento ao cliente empresarial em 3+ bilhões de usuários ativos", "url": "https://www.digitalapplied.com/blog/meta-ai-business-agents-enterprise-llama-launch-2026"}, {"id": 26, "source": "Meta", "target": "Cerebras", "rel": "coopera com", "directed": false, "why": "Grok tornou-se plataforma de referência para inferência ultra-rápida de modelos Llama (LPU)", "detail": "Uso da arquitetura LPU da Groq para inferência de Llama com velocidade recorde de tokens/segundo", "url": "https://ai.meta.com/blog/llamacon-llama-news/"}, {"id": 27, "source": "Google", "target": "Pentágono (DoD)", "rel": "fornece para", "directed": true, "why": "Google expandiu parceria com DoD para acesso ao Gemini em trabalho classificado (2026)", "detail": "Gemini for Government integrado ao GenAI.mil como primeira oferta oficial de GenAI para o Exército dos EUA", "url": "https://www.eweek.com/news/google-april-2026-ai-announcements-gemini-agents/"}, {"id": 28, "source": "Microsoft", "target": "SAP", "rel": "coopera com", "directed": false, "why": "Copilot integrado ao ecossistema SAP para automação de processos empresariais", "detail": "Parceria estratégica para IA generativa em ERP e processos de negócios globais", "url": "https://blogs.microsoft.com/blog/2026/04/21/accelerating-frontier-transformation-with-microsoft-partners/"}, {"id": 29, "source": "Microsoft", "target": "Salesforce", "rel": "coopera com", "directed": false, "why": "Microsoft Copilot e Salesforce Einstein integram fluxos de trabalho de vendas e CRM", "detail": "Interoperabilidade entre as duas maiores plataformas de produtividade e CRM do mercado enterprise", "url": "https://blogs.microsoft.com/blog/2026/04/21/accelerating-frontier-transformation-with-microsoft-partners/"}, {"id": 30, "source": "Anthropic", "target": "SAP", "rel": "coopera com", "directed": false, "why": "Claude disponível como modelo no catálogo SAP BTP para aplicações empresariais soberanas", "detail": "Expansão da presença de Claude em plataformas de ERP e processos empresariais globais", "url": "https://anthropic.com/news/claude-partner-network"}, {"id": 31, "source": "Google DeepMind", "target": "Accenture", "rel": "coopera com", "directed": false, "why": "Accenture lançou Gemini Enterprise Acceleration Program para escala de IA agêntica em empresas Fortune 500 (Abr/2026)", "detail": "Programa de aceleração empresarial para implantar agentes Gemini em larga escala", "url": "https://newsroom.accenture.com/news/2024/accenture-and-google-cloud-expand-partnership-to-help-enterprises-adopt-generative-ai"}]};
-const COMM=["#E4F23C","#8FB3FF","#5FE0A6","#FF9A6B","#C9A7FF","#7FE3F0"];
-const REL={"coopera com":"#9DB8AE","fornece para":"#8FB3FF","investe em":"#E4F23C","concorre com":"#FF6B4A"};
-const COMM_NAME=[...new Set(DATA.nodes.map(n=>n.comm))].sort().map(c=>"Bloco "+DATA.nodes.filter(n=>n.comm===c).sort((a,b)=>b.deg-a.deg)[0].id);
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const norm=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
-const $=id=>document.getElementById(id);
-
-const nodes=DATA.nodes.map(d=>({...d})), byId=new Map(nodes.map(n=>[n.id,n]));
-const edges=DATA.edges.map(e=>({...e})), byEid=new Map(edges.map(e=>[e.id,e]));
-const adj=new Map(nodes.map(n=>[n.id,[]]));
-edges.forEach(e=>{adj.get(e.source).push(e);adj.get(e.target).push(e)});
-const other=(e,n)=>e.source===n?e.target:e.source;
-const fmt=e=>`${e.source} ${e.rel} ${e.target}`;
-
-/* stats */
-const M=DATA.meta;
-$("g-stats").innerHTML=[[M.nodes,"atores"],[M.edges,"relações"],[M.modularity.toFixed(2).replace(".",","),"modularidade"],[M.communities,"comunidades"]]
-  .map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join("");
-$("g-n-edges").textContent=M.edges;
-$("g-legend").innerHTML=COMM_NAME.map((n,i)=>`<span><i style="background:${COMM[i]}"></i>${n}</span>`).join("")+
-  Object.entries(REL).map(([k,c])=>`<span><i class="ln" style="background:${c}"></i>${k}</span>`).join("");
-
-/* draw */
-const svg=d3.select("#g-svg"); let W=0,H=0;
-const root=svg.append("g");
-const defs=svg.append("defs");
-Object.entries(REL).forEach(([k,c],i)=>defs.append("marker").attr("id","ar"+i).attr("viewBox","0 -5 10 10").attr("refX",10).attr("markerWidth",7).attr("markerHeight",7).attr("orient","auto")
-  .append("path").attr("d","M0,-4L10,0L0,4").attr("fill",c));
-const relIdx=Object.keys(REL);
-let sizeBy="deg";
-const R=n=>sizeBy==="deg"?5+n.deg*1.9:5+Math.sqrt(n.btw)*42;
-const link=root.append("g").selectAll("line").data(edges).join("line").attr("class","link")
-  .attr("stroke",e=>REL[e.rel]||"#888").attr("stroke-width",1.4)
-  .attr("stroke-dasharray",e=>e.rel==="concorre com"?"4 3":null)
-  .attr("marker-end",e=>e.directed?`url(#ar${relIdx.indexOf(e.rel)})`:null);
-const node=root.append("g").selectAll("g").data(nodes).join("g").attr("class","node").style("cursor","pointer");
-node.append("circle").attr("r",R).attr("fill",n=>COMM[n.comm%COMM.length]);
-node.append("text").text(n=>n.id).attr("dy",n=>-R(n)-5).attr("text-anchor","middle")
-  .style("font-weight",n=>n.deg>=4?600:400).style("font-size",n=>n.deg>=4?"12.5px":"10.5px");
-node.append("title").text(n=>`${n.id} · grau ${n.deg}`);
-
-const sim=d3.forceSimulation(nodes)
-  .force("link",d3.forceLink(edges).id(n=>n.id).distance(e=>58+Math.min(byId.get(typeof e.source==="object"?e.source.id:e.source).deg,6)*4).strength(.7))
-  .force("charge",d3.forceManyBody().strength(-300))
-  .force("collide",d3.forceCollide(n=>R(n)+16))
-  .on("tick",()=>{
-    nodes.forEach(n=>{n.x=Math.max(50,Math.min(W-50,n.x));n.y=Math.max(80,Math.min(H-95,n.y))});
-    link.each(function(e){const s=e.source,t=e.target,dx=t.x-s.x,dy=t.y-s.y,d=Math.hypot(dx,dy)||1,r=R(t)+3;
-      d3.select(this).attr("x1",s.x).attr("y1",s.y).attr("x2",t.x-dx/d*(e.directed?r:0)).attr("y2",t.y-dy/d*(e.directed?r:0))});
-    node.attr("transform",n=>`translate(${n.x},${n.y})`);
-  });
-// after d3.forceLink resolves, keep string ids accessible
-const sid=e=>typeof e.source==="object"?e.source.id:e.source, tid=e=>typeof e.target==="object"?e.target.id:e.target;
-edges.forEach(e=>{e.s=sid(e);e.t=tid(e)});
-function resize(){const b=$("g-svg").getBoundingClientRect();W=b.width;H=b.height;svg.attr("viewBox",`0 0 ${W} ${H}`);
-  const PP=[[.3,.36],[.72,.34],[.74,.64],[.28,.64]];
-  sim.force("x",d3.forceX(n=>W*PP[n.comm%4][0]).strength(.08)).force("y",d3.forceY(n=>H*PP[n.comm%4][1]).strength(.1)).alpha(.8).restart()}
-addEventListener("resize",resize);resize();
-sim.stop();for(let i=0;i<280;i++)sim.tick();sim.alpha(.06).restart();
-node.call(d3.drag()
-  .on("start",(ev,n)=>{if(!ev.active)sim.alphaTarget(.25).restart();n.fx=n.x;n.fy=n.y})
-  .on("drag",(ev,n)=>{n.fx=ev.x;n.fy=ev.y})
-  .on("end",(ev,n)=>{if(!ev.active)sim.alphaTarget(0);n.fx=null;n.fy=null}));
-document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{
-  document.querySelectorAll(".seg button").forEach(x=>x.classList.toggle("on",x===b));
-  sizeBy=b.dataset.size;node.select("circle").transition().duration(500).attr("r",R);
-  node.select("text").transition().duration(500).attr("dy",n=>-R(n)-5);
-  sim.force("collide",d3.forceCollide(n=>R(n)+16));sim.alpha(.5).restart();
-});
-
-/* highlighting */
-const hotN=new Set(),hotE=new Set();
-function paint(){
-  const on=hotN.size>0;
-  root.classed("dim",on);
-  node.classed("hot",n=>hotN.has(n.id));
-  link.classed("hot",e=>hotE.has(e.id));
-}
-function light(ns,es){
-  ns.forEach(n=>{if(!hotN.has(n)){hotN.add(n);node.filter(d=>d.id===n).classed("pulse",false).each(function(){this.getBBox();}).classed("pulse",true)}});
-  es.forEach(e=>{hotE.add(e.id);hotN.add(e.s);hotN.add(e.t)});
-  paint();
-}
-function clearHot(){hotN.clear();hotE.clear();paint()}
-$("g-reset").onclick=()=>{clearHot();$("g-node").hidden=true};
-
-/* node card */
-node.on("click",(ev,n)=>{ev.stopPropagation();showNode(n.id)});
-svg.on("click",()=>{$("g-node").hidden=true});
-function showNode(id){
-  const n=byId.get(id),es=adj.get(id);
-  clearHot();light([id],es);
-  $("g-node").innerHTML=`<button class="x2" aria-label="Fechar">×</button><h4>${esc(n.id)}</h4>
-   <div class="sub">${esc(n.nature)} · ${esc(n.sector)} · ${esc(COMM_NAME[n.comm])}</div>
-   <div class="kv"><div><b>${n.deg}</b>grau</div><div><b>${n.btw.toFixed(3).replace(".",",")}</b>intermediação</div></div>
-   <ul>${es.map(e=>`<li><b>${esc(e.rel)}</b> ${esc(other({source:e.s,target:e.t},id))}<br><span style="color:#6B6760">${esc(e.why)}</span></li>`).join("")}</ul>
-   <button class="ask">Perguntar sobre ${esc(n.id)} →</button>`;
-  $("g-node").hidden=false;
-  $("g-node").querySelector(".x2").onclick=()=>{$("g-node").hidden=true;clearHot()};
-  $("g-node").querySelector(".ask").onclick=()=>ask(`Qual é o papel de ${n.id} no ecossistema?`);
-}
-
-/* ===== retrieval tools ===== */
-const ALIAS=[["claude","Anthropic"],["gemini","Google DeepMind"],["deepmind","Google DeepMind"],["llama","Meta"],["copilot","Microsoft"],["azure","Microsoft"],
- ["pentagono","Pentágono (DoD)"],["dod","Pentágono (DoD)"],["defesa","Pentágono (DoD)"],["governo dos eua","Pentágono (DoD)"],["eua","Pentágono (DoD)"],
- ["reino unido","Governo do Reino Unido"],["singapura","Governo de Singapura"],["whatsapp","WhatsApp Business"],["cash app","Block (Cash App)"],
- ["nemo","NVIDIA NeMo"],["asco","ASCO (Oncologia)"],["oncologia","ASCO (Oncologia)"],["reliance","Reliance Industries"],["dell","Dell Technologies"],
- ["google cloud","Google Cloud"],["cloud do google","Google Cloud"]];
-function findEntities(q){
-  let t=" "+norm(q).replace(/[^a-z0-9 ()]/g," ")+" ";const found=[];
-  const cands=[...nodes.map(n=>[norm(n.id).replace(/[^a-z0-9 ()]/g," ").replace(/\s+/g," ").trim(),n.id]),...ALIAS].sort((a,b)=>b[0].length-a[0].length);
-  for(const [k,id] of cands){
-    const re=new RegExp("(^|[^a-z0-9])"+k.replace(/[()]/g,"\\$&")+"([^a-z0-9]|$)");
-    if(re.test(t)){if(!found.includes(id))found.push(id);t=t.replace(re," # ")}
-  }
-  return found;
-}
-const edgeOut=e=>({id:e.id,de:e.s,rel:e.rel,para:e.t,direcionada:e.directed,evidencia:e.why});
-const T={
- buscar_entidades:({texto})=>{const r=findEntities(texto||"");light(r,[]);return{entidades:r}},
- vizinhos:({no})=>{const id=resolve(no);if(!id)return{erro:`Nó não encontrado: ${no}`};const es=adj.get(id);light([id],es);
-   const n=byId.get(id);return{no:id,setor:n.sector,natureza:n.nature,grau:n.deg,intermediacao:n.btw,comunidade:n.comm+1,relacoes:es.map(edgeOut)}},
- caminho:({de,para})=>{const a=resolve(de),b=resolve(para);if(!a||!b)return{erro:"Nó não encontrado"};
-   const prev=new Map([[a,null]]),q=[a];while(q.length){const x=q.shift();if(x===b)break;for(const e of adj.get(x)){const y=other({source:e.s,target:e.t},x);if(!prev.has(y)){prev.set(y,{x,e});q.push(y)}}}
-   if(!prev.has(b)){light([a,b],[]);return{caminho:null,observacao:"Sem caminho nesta amostra: os nós estão em componentes desconectados."}}
-   const path=[];let c=b;while(prev.get(c)){const {x,e}=prev.get(c);path.unshift(e);c=x}
-   light([a,b],path);return{saltos:path.length,caminho:path.map(edgeOut)}},
- ranking:({metrica="grau",n=5})=>{const k=/inter|betw|ponte/.test(norm(metrica))?"btw":"deg";
-   const r=[...nodes].sort((x,y)=>y[k]-x[k]).slice(0,n);light(r.map(x=>x.id),[]);
-   return{metrica:k==="btw"?"intermediacao":"grau",ranking:r.map(x=>({no:x.id,valor:x[k],setor:x.sector}))}},
- filtrar_relacao:({tipo})=>{const k=norm(tipo||"");const es=edges.filter(e=>norm(e.rel).includes(k.split(" ")[0]));light([],es);return{tipo,relacoes:es.map(edgeOut)}},
- comunidade:({no})=>{const id=resolve(no);if(!id)return{erro:"Nó não encontrado"};const c=byId.get(id).comm;const m=nodes.filter(n=>n.comm===c);
-   const es=edges.filter(e=>byId.get(e.s).comm===c&&byId.get(e.t).comm===c);light(m.map(x=>x.id),es);return{comunidade:c+1,membros:m.map(x=>x.id),relacoes_internas:es.length}}
-};
-function resolve(x){if(!x)return null;if(byId.has(x))return x;const f=findEntities(x);return f[0]||null}
-const TOOL_DEFS=[
- ["buscar_entidades","Encontra nós do grafo citados num texto (aceita apelidos como Claude, Gemini, Llama).",{texto:{type:"string"}},["texto"]],
- ["vizinhos","Relações diretas de um nó, com tipo, direção e evidência. Também devolve grau e intermediação.",{no:{type:"string"}},["no"]],
- ["caminho","Menor caminho entre dois nós (grafo não dirigido).",{de:{type:"string"},para:{type:"string"}},["de","para"]],
- ["ranking","Ranking dos nós por 'grau' ou 'intermediacao'.",{metrica:{type:"string",enum:["grau","intermediacao"]},n:{type:"integer"}},["metrica"]],
- ["filtrar_relacao","Todas as relações de um tipo: 'coopera com', 'fornece para', 'investe em' ou 'concorre com'.",{tipo:{type:"string"}},["tipo"]],
- ["comunidade","Membros da comunidade (Louvain) de um nó.",{no:{type:"string"}},["no"]]
-];
-
-/* trace + evidence */
-const retrieved=new Set();
-function trace(name,args,res){
-  const a=Object.values(args||{}).join(", ");
-  let s="";
-  if(res.relacoes)s=`${res.relacoes.length} relações`;else if(res.caminho)s=`${res.saltos} saltos`;
-  else if(res.ranking)s=res.ranking.slice(0,3).map(r=>r.no).join(", ")+"…";else if(res.entidades)s=res.entidades.join(", ")||"nenhuma";
-  else if(res.membros)s=`${res.membros.length} membros`;else if(res.observacao)s="sem caminho";else if(res.erro)s=res.erro;
-  [...(res.relacoes||[]),...(res.caminho||[])].forEach(e=>retrieved.add(e.id));
-  const li=document.createElement("li");li.innerHTML=`→ <b>${name}</b>(${esc(a)}) · ${esc(s)}`;$("rag-trace").appendChild(li);
-}
-function run(name,args){const res=T[name](args);trace(name,args,res);return res}
-function renderAnswer(text){
-  $("rag-answer").innerHTML=esc(text).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").split(/\n{2,}/).map(p=>`<p style="margin-bottom:10px">${p.replace(/\n/g,"<br>")}</p>`).join("")
-   .replace(/\[(\d+(?:\s*,\s*\d+)*)\]/g,(m,g)=>g.split(/\s*,\s*/).map(n=>byEid.has(+n)?`<sup data-e="${n}">${n}</sup>`:"").join(""));
-}
-function renderEvidence(text){
-  const cited=[...new Set([...(text.matchAll(/\[(\d+(?:\s*,\s*\d+)*)\]/g))].flatMap(m=>m[1].split(/\s*,\s*/).map(Number)))].filter(n=>byEid.has(n));
-  const ids=cited.length?cited:[...retrieved].slice(0,12);
-  $("rag-ev").innerHTML=ids.length?`<h5>${cited.length?"Relações citadas":"Relações recuperadas"}</h5>`+ids.map(i=>{const e=byEid.get(i);
-    return `<div id="ev-${i}"><em>[${i}]</em><b>${esc(fmt({source:e.s,rel:e.rel,target:e.t}))}</b><br>${esc(e.why)}<br><a href="${esc(e.url)}">fonte ↗</a></div>`}).join(""):"";
-}
-$("rag-answer").addEventListener("click",ev=>{const n=ev.target.dataset&&ev.target.dataset.e;if(!n)return;const e=byEid.get(+n);clearHot();light([],[e]);
-  const el=$("ev-"+n);if(el){el.scrollIntoView({block:"nearest",behavior:"smooth"});el.classList.add("flash");setTimeout(()=>el.classList.remove("flash"),1200)}});
-
-/* local answerer (works anywhere, no model) */
-function localAnswer(q){
-  const t=norm(q),ents=findEntities(q);run("buscar_entidades",{texto:q});
-  if(/ponte|intermedi|betweenness|broker|gargalo|controla|poder/.test(t)&&ents.length<2){
-    const b=run("ranking",{metrica:"intermediacao",n:5}).ranking,d=run("ranking",{metrica:"grau",n:5}).ranking;
-    return `Nesta amostra, as maiores pontes (intermediação) são ${b.map(x=>`**${x.no}** (${x.valor.toFixed(3).replace(".",",")})`).join(", ")}. Em grau, lideram ${d.map(x=>`${x.no} (${x.valor})`).join(", ")}.\n\n`+
-      `O artigo mostra que, na rede completa, grau e poder se separam: quem controla os caminhos são intermediários de infraestrutura como ASML, Scale AI e Shutterstock, mesmo com poucas conexões diretas. Aqui, Anthropic e Google DeepMind somam volume e posição de ponte porque ligam blocos distintos (big techs, consultorias e governos).`;
-  }
-  if(/invest|capital|aporte|financ/.test(t)){const r=run("filtrar_relacao",{tipo:"investe em"}).relacoes;
-    return `Há ${r.length} relações de investimento na amostra: ${r.map(e=>`${e.de} investe em ${e.para} [${e.id}]`).join("; ")}. Os dois aportes são circulares: a Anthropic devolve parte do capital comprando capacidade de computação dos próprios investidores [1].`}
-  if(/concorr|rival|risco|conflit/.test(t)){const r=run("filtrar_relacao",{tipo:"concorre com"}).relacoes;
-    return r.map(e=>`${e.de} e ${e.para} aparecem em relação de concorrência/conflito [${e.id}]: ${e.evidencia}`).join("\n\n")}
-  if(ents.length>=2){const r=run("caminho",{de:ents[0],para:ents[1]});
-    if(!r.caminho)return `Não há caminho entre **${ents[0]}** e **${ents[1]}** nesta amostra: eles estão em componentes desconectados. Isso é um efeito do recorte de 31 relações; na rede completa do artigo o diâmetro é 7.`;
-    return `**${ents[0]}** chega a **${ents[1]}** em ${r.saltos} ${r.saltos>1?"saltos":"salto"}: `+r.caminho.map(e=>`${e.de} ${e.rel} ${e.para} [${e.id}]`).join(" → ")+`.`+(r.saltos>1?`\n\nOs nós intermediários desse caminho são justamente os que exercem papel de ponte entre os dois.`:"")}
-  if(ents.length===1){const r=run("vizinhos",{no:ents[0]});const g={};r.relacoes.forEach(e=>{(g[e.rel]=g[e.rel]||[]).push(e)});
-    return `**${r.no}** (${r.setor}) tem grau ${r.grau} e intermediação ${r.intermediacao.toFixed(3).replace(".",",")}, na comunidade ${r.comunidade}.\n\n`+
-      Object.entries(g).map(([k,es])=>`${k[0].toUpperCase()+k.slice(1)}: ${es.map(e=>`${e.de===r.no?e.para:e.de+" (→ "+r.no+")"} [${e.id}]`).join(", ")}.`).join("\n")}
-  const d=run("ranking",{metrica:"grau",n:5}).ranking;
-  return `Não identifiquei uma empresa na pergunta. Os atores mais conectados da amostra são ${d.map(x=>`${x.no} (${x.valor})`).join(", ")}. Tente citar uma empresa (ex.: Meta, Gemini, Pentágono) ou perguntar por pontes, investimentos ou caminhos entre duas empresas.`;
-}
-
-/* model-backed Graph RAG via Claude, if this page can ask Claude */
-let sample=null;
-if(window.claude&&claude.use){claude.use("sample").then(s=>{if(s){sample=s;$("rag-mode").textContent="Claude consulta o grafo com ferramentas · ao vivo";$("rag-mode").classList.add("live")}}).catch(()=>{})}
-const SYS=`Você é um assistente de Graph RAG sobre um grafo do ecossistema global de IA (amostra de ${M.edges} relações e ${M.nodes} atores de um artigo acadêmico de Livia Cardoso, PUC-Campinas, 2026). Use SEMPRE as ferramentas para recuperar fatos antes de responder; nunca use conhecimento externo sobre as empresas. Nós existentes: ${nodes.map(n=>n.id).join("; ")}.
-Regras da resposta: português do Brasil, 2 a 5 frases em prosa, sem listas nem títulos. Cite cada relação usada pelo seu id entre colchetes, ex.: [3]. Se a amostra não sustentar a resposta, diga isso. Contexto do artigo: na rede completa (208 nós, 344 arestas) a OpenAI lidera em grau (42), mas os maiores intermediários são ASML, Shutterstock e Scale AI, mostrando que grau e poder estrutural se dissociam.`;
-let busy=false;
-async function ask(q){
-  q=(q||"").trim();if(!q||busy)return;busy=true;$("rag-q").value=q;$("rag-form").querySelector("button").disabled=true;
-  clearHot();retrieved.clear();$("rag-trace").innerHTML="";$("rag-ev").innerHTML="";$("g-node").hidden=true;
-  $("rag-answer").innerHTML=`<p class="muted">Percorrendo o grafo…</p>`;
-  let text="";
-  if(sample){
-    try{
-      const r=await sample(`${SYS}\n\nPergunta: ${q}`,{modelTier:"default",cache:false,
-        tools:TOOL_DEFS.map(([name,description,props,req])=>({name,description,inputSchema:{type:"object",properties:props,required:req},execute:a=>run(name,a)})),
-        onText:({text:t})=>{if(t&&t!=="Thinking..."){text=t;renderAnswer(t)}}});
-      text=r.text||text;
-    }catch(err){
-      if(err&&err.code==="not_granted"){sample=null;$("rag-mode").textContent="Recuperação no grafo · resposta por regras";$("rag-mode").classList.remove("live")}
-      text="";
-    }
-  }
-  if(!text){clearHot();retrieved.clear();$("rag-trace").innerHTML="";text=localAnswer(q)}
-  renderAnswer(text);renderEvidence(text);
-  busy=false;$("rag-form").querySelector("button").disabled=false;
-}
-$("rag-form").addEventListener("submit",e=>{e.preventDefault();ask($("rag-q").value)});
-["Quem conecta a Anthropic ao Pentágono?","Quais são as pontes da rede?","Onde o Gemini está sendo usado?","Quem investe em quem?","Qual o papel da Meta?"]
- .forEach(c=>{const b=document.createElement("button");b.type="button";b.textContent=c;b.onclick=()=>ask(c);$("rag-chips").appendChild(b)});
-window.__graphFocus=()=>{};
-})();
-}</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" async onload="initGraph()"></script>
 </body>
 </html>
