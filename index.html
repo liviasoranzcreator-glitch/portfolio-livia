@@ -315,6 +315,41 @@ footer .small{font-size:15px;line-height:1.8}
   .rows div{grid-template-columns:1fr;gap:4px}
   footer{margin-top:60px;padding:90px 18px 40px}
 }
+
+/* ===== Sobre mim: grade alinhada ===== */
+.intro,.about{display:grid;grid-template-columns:minmax(280px,4fr) 5fr minmax(280px,3fr);column-gap:40px;padding-left:32px;padding-right:32px}
+.intro{padding-top:132px;padding-bottom:44px;align-items:end;row-gap:0}
+.intro-main{grid-column:1/3}
+.intro-meta{grid-column:3;align-items:flex-start;text-align:left;gap:8px;padding:0 0 6px 2px;font-size:14.5px}
+.name{font-size:clamp(52px,6.6vw,104px);font-weight:300;letter-spacing:-.05em;line-height:.95;margin:0}
+.intro-sub{margin-top:18px;max-width:none;font-size:clamp(18px,1.55vw,22px)}
+.about{align-items:stretch;gap:0 40px}
+.about-photo{margin:0;border-radius:22px;overflow:hidden;min-height:100%;position:relative}
+.about-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;aspect-ratio:auto}
+.about .txt{display:flex;flex-direction:column}
+.about .txt p{font-size:clamp(17px,1.3vw,19.5px);line-height:1.5;max-width:none;margin-bottom:14px}
+.rows{margin-top:auto;padding-top:14px;max-width:none}
+.rows div{grid-template-columns:120px 1fr;font-size:15px;padding:13px 0}
+.contact{position:static;display:flex;flex-direction:column;gap:18px;padding:24px;height:100%}
+.c-group .contact-k{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.c-row{padding:11px 0}
+.c-row b{font-size:15px}
+div.c-row:hover{padding-left:0}
+.c-cv{margin-top:auto}
+@media (max-width:1100px){
+  .intro,.about{grid-template-columns:minmax(240px,4fr) 5fr;}
+  .intro-main{grid-column:1/-1}.intro-meta{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;gap:6px 22px;margin-top:18px}
+  .contact{grid-column:1/-1;margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px}
+  .c-cv{grid-column:1/-1;margin-top:8px}
+}
+@media (max-width:700px){
+  .intro,.about{grid-template-columns:1fr;padding-left:18px;padding-right:18px}
+  .intro{padding-top:104px}
+  .about-photo{min-height:auto;aspect-ratio:4/5}
+  .about .txt{margin-top:24px}
+  .contact{grid-template-columns:1fr}
+}
+.intro-meta .dot-alt::before{background:var(--ink);box-shadow:0 0 0 4px rgba(12,10,8,.08);width:6px;height:6px;margin:0 1px}
 </style>
 </head>
 <body>
@@ -339,15 +374,18 @@ footer .small{font-size:15px;line-height:1.8}
 
 <section id="sobre">
   <div class="intro rv">
-    <div>
+    <div class="intro-main">
       <div class="eyebrow">Sobre mim</div>
-      <h1 class="giant">Livia Cardoso</h1>
+      <h1 class="name">Livia Cardoso</h1>
       <p class="intro-sub">Administração, dados e IA. <b>Entendo o problema como quem gere e resolvo como quem constrói.</b></p>
     </div>
-    <div class="intro-meta"><span class="dot">Aberta a oportunidades em IA e produto</span><span>Itatiba · Campinas, SP</span></div>
+    <div class="intro-meta">
+      <span class="dot">Aberta a oportunidades em IA e produto</span>
+      <span class="dot dot-alt">Possibilidade de modelo híbrido em Osasco, SP</span>
+    </div>
   </div>
   <div class="about">
-    <img class="rv" src="img/ifood.jpg" alt="Livia no escritório do iFood">
+    <figure class="about-photo rv"><img src="img/ifood.jpg" alt="Livia no escritório do iFood"></figure>
     <div class="txt rv">
       <p>Sou estudante de Administração na PUC-Campinas e primeira colocada da turma. Trabalho na ponte entre negócio, dados e tecnologia.</p>
       <p>Na Siemens Energy sou estagiária de Inovação e Tecnologia: construo agentes internos, dashboards em Power BI e fluxos no Power Automate. Fora dela, fundei a RankUP e o Projeto Vênus, organizei um hackathon de IA com a WeHandle pela Liga de TI e levo o que aprendo em hackathons para produtos reais.</p>
@@ -359,10 +397,18 @@ footer .small{font-size:15px;line-height:1.8}
       </div>
     </div>
     <aside class="contact rv" aria-label="Contato">
-      <div class="contact-k">Contato</div>
-      <a class="c-row" href="https://www.linkedin.com/in/l%C3%ADvia-cardoso-b788a62b3/"><span>LinkedIn</span><b>lívia-cardoso ↗</b></a>
-      <a class="c-row" href="mailto:liviasoranzcreator@gmail.com"><span>E-mail</span><b>liviasoranzcreator@gmail.com</b></a>
-      <a class="c-row" href="https://wa.me/5511995080164"><span>Telefone / WhatsApp</span><b>+55 (11) 99508-0164</b></a>
+      <div class="c-group">
+        <div class="contact-k">Contato</div>
+        <a class="c-row" href="https://www.linkedin.com/in/l%C3%ADvia-cardoso-b788a62b3/"><span>LinkedIn</span><b>lívia-cardoso ↗</b></a>
+        <a class="c-row" href="mailto:liviasoranzcreator@gmail.com"><span>E-mail</span><b>liviasoranzcreator@gmail.com</b></a>
+        <a class="c-row" href="https://wa.me/5511995080164"><span>Telefone / WhatsApp</span><b>+55 (11) 99508-0164</b></a>
+      </div>
+      <div class="c-group">
+        <div class="contact-k">Disponibilidade</div>
+        <div class="c-row"><span>Modelo de trabalho</span><b>Híbrido em Osasco, SP</b></div>
+        <div class="c-row"><span>Base</span><b>Itatiba · Campinas, SP</b></div>
+        <div class="c-row"><span>Idiomas</span><b>Português nativo · Inglês avançado</b></div>
+      </div>
       <a class="pill lime c-cv" href="curriculo-livia-cardoso.pdf?v=2" target="_blank" rel="noopener">Acesse meu currículo ↗</a>
     </aside>
   </div>
