@@ -345,7 +345,9 @@ div.c-row:hover{padding-left:0}
 @media (max-width:700px){
   .intro,.about{grid-template-columns:1fr;padding-left:18px;padding-right:18px}
   .intro{padding-top:104px}
-  .about-photo{min-height:auto;aspect-ratio:4/5}
+  .about{align-items:start}
+  .about-photo{min-height:0;height:auto;aspect-ratio:auto}
+  .about-photo img{position:static;display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
   .about .txt{margin-top:24px}
   .contact{grid-template-columns:1fr}
 }
