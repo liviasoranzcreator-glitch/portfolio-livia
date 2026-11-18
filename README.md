@@ -7,7 +7,7 @@ Portfólio pessoal de Livia Cardoso, estudante de Administração na PUC-Campina
 - **Abertura:** os projetos entram voando em 3D como telas das apresentações. Clicar abre a apresentação completa.
 - **Sobre mim:** resumo, prêmios e contatos (LinkedIn, e-mail, telefone), com link para o currículo.
 - **Por onde ando:** fotos de eventos, palcos e hackathons espalhadas pela tela, com navegação foto a foto.
-- **O que construo:** grade com RankUP, Aresta, BEES PRO, logic, Vênus e o artigo sobre poder na rede de IA. Cada projeto abre os slides, a stack e as habilidades desenvolvidas.
+- **O que construo:** grade com RankUP, Aresta, BEES PRO, Ecologic, Vênus e o artigo sobre poder na rede de IA. Cada projeto abre os slides, a stack e as habilidades desenvolvidas.
 
 ## Estrutura
 
