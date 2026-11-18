@@ -71,6 +71,37 @@ button{font-family:inherit}
 .sec-head{padding:150px 32px 56px}
 .lede{font-size:16px;color:var(--mute);max-width:420px;letter-spacing:-.012em}
 
+/* projetos: lista */
+.plist-wrap{padding:0 32px}
+.pfilter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.pfilter button{border:1px solid var(--line);background:#fff;border-radius:40px;padding:8px 15px;font-size:14px;cursor:pointer;color:var(--ink);transition:.2s}
+.pfilter button:hover{border-color:var(--ink)}
+.pfilter button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.plist{border-bottom:1px solid var(--line)}
+.prow{display:grid;grid-template-columns:56px minmax(160px,1.1fr) 1.4fr 150px 40px;align-items:center;gap:0 18px;width:100%;padding:20px 8px;border:0;border-top:1px solid var(--line);background:none;text-align:left;cursor:pointer;color:inherit;transition:background .25s}
+.prow[hidden]{display:none}
+.prow:hover{background:var(--soft)}
+.prow .n{font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}
+.prow .th{display:none}
+.prow .t{font-size:clamp(24px,2.4vw,34px);font-weight:300;letter-spacing:-.035em;line-height:1.1;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.prow:hover .t{transform:translateX(10px)}
+.prow .d{font-size:15px;color:var(--mute);font-weight:300}
+.prow .c{justify-self:start;font-size:13px;background:#fff;border:1px solid var(--line);border-radius:40px;padding:5px 12px}
+.prow .a{justify-self:end;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--lime);opacity:0;transform:scale(.7);transition:.3s}
+.prow:hover .a{opacity:1;transform:none}
+.peek{position:fixed;left:0;top:0;width:340px;aspect-ratio:16/9;border-radius:14px;overflow:hidden;pointer-events:none;z-index:45;opacity:0;scale:.85;transition:opacity .25s,scale .3s;box-shadow:0 30px 60px -25px rgba(0,0,0,.45);background:#eee}
+.peek.on{opacity:1;scale:1}
+.peek img{width:100%;height:100%;object-fit:cover;display:block}
+@media (hover:none),(max-width:900px){.peek{display:none}}
+@media (max-width:900px){
+  .plist-wrap{padding:0 18px}
+  .prow{grid-template-columns:84px 1fr 24px;grid-template-areas:"th t a" "th d a";gap:2px 14px;padding:14px 4px}
+  .prow .n,.prow .c{display:none}
+  .prow .th{display:block;grid-area:th;width:84px;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+  .prow .t{grid-area:t;font-size:22px}.prow .d{grid-area:d;font-size:13px}
+  .prow .a{grid-area:a;opacity:1;transform:none;width:24px;height:24px;font-size:12px}
+}
+
 /* bento */
 .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;padding:0 32px}
 .tile{position:relative;grid-column:span 6;height:500px;border-radius:24px;border:1px solid var(--line);background:var(--soft);overflow:hidden;cursor:pointer;text-align:left;padding:0;color:inherit}
@@ -245,7 +276,11 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
 
 <section id="projetos">
   <div class="sec-head build-head"><div><h2 class="giant">O que construo</h2><p class="build-sub">Veja alguns casos.</p></div><a class="pill lime" href="curriculo-livia-cardoso.pdf" target="_blank" rel="noopener">Acesse meu currículo ↗</a></div>
-  <div class="bento" id="bento"></div>
+  <div class="plist-wrap">
+    <div class="pfilter" id="pfilter" role="group" aria-label="Filtrar projetos"></div>
+    <div class="plist" id="plist"></div>
+  </div>
+  <div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
 </section>
 
 
@@ -289,22 +324,22 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
 const $=id=>document.getElementById(id);
 const seq=(dir,n,pad=2)=>Array.from({length:n},(_,i)=>`img/${dir}/p-${String(i+1).padStart(pad,'0')}.jpg`);
 const P=[
- {id:"rankup",title:"RankUP",short:"Startup · Fundadora",role:"Fundadora e Product Lead · desde mai/2026",cover:"img/rankup/p-01.jpg",ink:"dark",w:"w7",
+ {id:"rankup",title:"RankUP",short:"Fundadora e Product Lead",role:"Fundadora e Product Lead · desde mai/2026",cover:"img/rankup/p-01.jpg",ink:"dark",w:"w7",
   slides:seq("rankup",14),
   desc:"Startup B2B2C de verificação de competências, o ATS na era da IA. O estudante sobe o currículo, a IA mapeia as lacunas e indica um case de mercado simulado; ao resolvê-lo, recebe correção executiva e um badge verificado. Publicada em produção com Supabase, validada no Mescla Empreende e testada como agente avaliador num hackathon real, com 100% de convergência com a banca de especialistas.",
   stack:["LLM de baixo custo no diagnóstico","Modelo de raciocínio","Busca vetorial","RAG","Supabase","Figma + design system","Netlify"],
   skills:["Product discovery com 52 respondentes","Arquitetura de IA orientada a tokenomics","Modelagem de negócio B2B2C","Pitch para banca de investimento"]},
- {id:"aresta",title:"Aresta",short:"Google DeepMind · PM/UX",role:"Product Lead (PM/UX) · Google DeepMind AI for Social Impact Hackathon, abr/2026",cover:"img/aresta/p-1.jpg",ink:"dark",w:"w5",
+ {id:"aresta",title:"Aresta",short:"Google DeepMind · Product Lead",role:"Product Lead (PM/UX) · Google DeepMind AI for Social Impact Hackathon, abr/2026",cover:"img/aresta/p-1.jpg",ink:"dark",w:"w5",
   slides:seq("aresta",8,1),
   desc:"Assistente de reskilling em IA no WhatsApp para trabalhadores da classe C, com trilhas personalizadas de IA na prática e suporte por áudio. Liderei as jornadas e o blueprint e coordenei o time de engenharia de quatro pessoas na integração da Gemini API ao WhatsApp com RAG: demo funcional construída do zero em uma tarde. Selecionada entre 100 de 750 candidaturas.",
   stack:["WhatsApp (API third-party)","Backend","Gemini API","RAG"],
   skills:["Product management em hackathon","UX para baixa literacia digital","Arquitetura de produto com LLM","Impacto social mensurável"]},
- {id:"bees",title:"BEES PRO",short:"Hackathon Ambev · 1º lugar",role:"Hackathon Ambev, nov/2025 · 1º lugar e Destaque Individual",cover:"img/bees/p-03.jpg",ink:"light",w:"w5",
+ {id:"bees",title:"BEES PRO",short:"Ambev · 1º lugar e Destaque Individual",role:"Hackathon Ambev, nov/2025 · 1º lugar e Destaque Individual",cover:"img/bees/p-03.jpg",ink:"light",w:"w5",
   slides:seq("bees",18),
   desc:"Plano para levar o NPS do BEES de 53 para 59 em três meses. Cruzamos as pesquisas da Ambev com pesquisa própria, nos cadastramos e fizemos pedidos para viver a jornada, e atacamos logística, preço e materiais com bot pós-entrega, rastreamento e controle de qualidade por escaneamento.",
   stack:["Análise de NPS","Mapa de jornada","Bot pós-entrega","Notificações de rastreio","KPIs por iniciativa"],
   skills:["Análise de dados de CX","Priorização por impacto","Roadmap de implementação","Storytelling com dados"]},
- {id:"logic",title:"logic",short:"Pitch · moda consciente",role:"Marketplace de moda consciente",cover:"img/logic/p-01.jpg",ink:"light",w:"w7",
+ {id:"logic",title:"logic",short:"Marketplace de moda consciente",role:"Marketplace de moda consciente",cover:"img/logic/p-01.jpg",ink:"light",w:"w7",
   slides:seq("logic",13),
   desc:"A dopamina do fast fashion aplicada ao consumo consciente: um marketplace com UX de alta retenção, cálculo de impacto por marca, cashback sustentável e um tracker gamificado de economia, ligando jovens de 18 a 35 anos a marcas sustentáveis e brechós.",
   stack:["Marketplace","Gamificação","Cálculo de carbono","Cashback ESG","Data & Ads"],
@@ -314,7 +349,7 @@ const P=[
   desc:"Produto de tecnologia social (UX e educação) contra a vulnerabilidade feminina. Idealizei e lidero um time multidisciplinar de 14 pessoas, com MVP validado com ONGs e a rede Enactus. Venceu o Prêmio ODS 16 no Enactus Brasil e ficou no Top 80 do Desafio LED.",
   stack:["UX","Educação","Identidade visual","Mídia kit"],
   skills:["Liderança de time de 14 pessoas","Validação de MVP com ONGs","Comunicação de impacto"]},
- {id:"artigo",title:"Poder na rede de IA",short:"Pesquisa · Gephi",role:"Artigo · PUC-Campinas 2026",cover:null,ink:"light",w:"w6",
+ {id:"artigo",title:"Poder na rede de IA",short:"Gephi · Análise de Redes Sociais",role:"Artigo · PUC-Campinas 2026",cover:null,ink:"light",w:"w6",
   slides:seq("artigo",8),
   desc:"Mapeamento do ecossistema global de LLMs com Análise de Redes Sociais no Gephi. Mostra que as plataformas de modelos dominam o volume de conexões, mas quem controla o sistema são intermediários de litografia, dados e energia.",
   stack:["Gephi","Análise de Redes Sociais","Betweenness","Modularidade"],
@@ -362,15 +397,26 @@ track.addEventListener('pointerdown',e=>{dx0=e.clientX;off0=drift;dragMoved=fals
 addEventListener('pointermove',e=>{if(dx0===null)return;const d=e.clientX-dx0;if(Math.abs(d)>6){dragMoved=true;track.classList.add('drag')}if(dragMoved){drift=off0-d;offset=drift}});
 addEventListener('pointerup',()=>{dx0=null;track.classList.remove('drag');setTimeout(()=>dragMoved=false,0)});
 
-/* ---------- bento ---------- */
-const bento=$('bento');
-P.forEach((p,i)=>{
-  const t=document.createElement('button');t.className=`tile ${p.w}${p.cover?'':' dark'}`;t.setAttribute('aria-label',`Abrir ${p.title}`);
-  t.innerHTML=(p.cover?`<div class="stage"><img src="${p.cover}" alt="" loading="lazy"></div>`:
-    `<div class="big">Poder, dependência e intermediação no ecossistema global de IA<small>Artigo com Análise de Redes Sociais no Gephi sobre quem controla o ecossistema de LLMs.</small></div>`)+
-    `<div class="tag"><span>${p.title}</span><span class="k" style="${p.cover?'':'color:rgba(237,242,239,.6)'}">${p.short}</span></div><span class="go">↗</span>`;
-  t.onclick=()=>openP(i);bento.appendChild(t);
+/* ---------- projetos: lista interativa ---------- */
+const CAT={rankup:"Startup",aresta:"Hackathon",bees:"Hackathon",logic:"Pitch",venus:"Impacto social",artigo:"Pesquisa"};
+const plist=$('plist'),peek=$('peek'),peekImg=peek.querySelector('img');
+const rows=P.map((p,i)=>{
+  const r=document.createElement('button');r.className='prow';r.dataset.cat=CAT[p.id];r.setAttribute('aria-label',`Abrir ${p.title}`);
+  const thumb=p.cover||p.slides[0];
+  r.innerHTML=`<span class="n">${String(i+1).padStart(2,'0')}</span><img class="th" src="${thumb}" alt="" loading="lazy"><span class="t">${p.title}</span><span class="d">${p.short}</span><span class="c">${CAT[p.id]}</span><span class="a">↗</span>`;
+  r.onclick=()=>openP(i);
+  r.addEventListener('pointerenter',()=>{peekImg.src=thumb;peek.classList.add('on')});
+  r.addEventListener('pointerleave',()=>peek.classList.remove('on'));
+  plist.appendChild(r);return r;
 });
+const cats=['Todos',...new Set(Object.values(CAT))];
+const fil=$('pfilter');
+cats.forEach(c=>{const b=document.createElement('button');b.textContent=c;if(c==='Todos')b.className='on';
+  b.onclick=()=>{[...fil.children].forEach(x=>x.classList.toggle('on',x===b));rows.forEach(r=>r.hidden=!(c==='Todos'||r.dataset.cat===c))};fil.appendChild(b)});
+let px=0,py=0,qx=0,qy=0;
+addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY},{passive:true});
+(function follow(){qx+=(px-qx)*.16;qy+=(py-qy)*.16;const v=(px-qx)*.06;
+  peek.style.transform=`translate(${qx+28}px,${qy-110}px) rotate(${Math.max(-8,Math.min(8,v))}deg)`;requestAnimationFrame(follow)})();
 
 /* ---------- modal ---------- */
 const M=$('modal');let cur=null,k=0;
