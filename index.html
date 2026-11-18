@@ -83,7 +83,18 @@ button{font-family:inherit}
 .tile.dark .big small{display:block;font-size:15px;letter-spacing:-.01em;color:rgba(237,242,239,.6);margin-top:18px;max-width:420px;line-height:1.45}
 
 /* about */
-.about{display:grid;grid-template-columns:minmax(280px,440px) 1fr;gap:64px;align-items:end;padding:0 32px}
+.about{display:grid;grid-template-columns:minmax(260px,400px) 1fr 300px;gap:56px;align-items:end;padding:0 32px}
+.contact{align-self:start;position:sticky;top:110px;border:1px solid var(--line);border-radius:24px;padding:22px;background:var(--soft)}
+.contact-k{font-size:13px;color:var(--mute);margin-bottom:6px}
+.c-row{display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid var(--line)}
+.c-row span{display:block;font-size:12.5px;color:var(--mute);font-weight:300}
+.c-row b{display:block;font-weight:400;font-size:15px;word-break:break-word}
+.c-row:hover b{text-decoration:underline}
+.c-cv{margin-top:18px;width:100%;justify-content:center}
+.contact-loc{font-size:12.5px;color:var(--mute);margin-top:12px;text-align:center;font-weight:300}
+.build-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.build-sub{font-size:22px;font-weight:300;letter-spacing:-.025em;color:var(--mute);margin-top:18px}
+footer .small a{text-decoration:none;border-bottom:1px solid var(--line)}
 .about img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:24px;display:block}
 .about .txt p{font-size:22px;font-weight:300;letter-spacing:-.025em;line-height:1.35;max-width:640px;margin-bottom:18px}
 .rows{margin-top:34px;max-width:640px;border-top:1px solid var(--line)}
@@ -91,7 +102,7 @@ button{font-family:inherit}
 .rows div span:first-child{color:var(--mute);font-weight:300}
 
 /* beyond: scattered photos */
-.beyond{position:relative;height:1180px;margin-top:80px;overflow:hidden}
+.beyond{position:relative;height:1340px;margin-top:80px;overflow:hidden}
 .beyond .center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;z-index:2;pointer-events:none;width:100%}
 .beyond .center p{margin:22px auto 0;font-size:16px;color:var(--mute);max-width:330px}
 .ph{position:absolute;border-radius:16px;overflow:hidden;cursor:zoom-in;border:0;padding:0;background:#ddd;box-shadow:0 20px 40px -24px rgba(0,0,0,.4);will-change:transform;transition:box-shadow .3s}
@@ -152,6 +163,7 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
   .tile,.tile.w7,.tile.w5{grid-column:auto;height:360px}
   .tile .stage{padding:34px 24px 74px}
   .about{grid-template-columns:1fr;gap:28px;padding:0 18px}
+  .contact{position:static}
   .about .txt p{font-size:19px}
   .beyond{height:auto;margin-top:40px;padding:0 0 30px}
   .beyond .center{position:static;transform:none;padding:0 18px 30px}
@@ -253,15 +265,15 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
     </a>
     <nav class="nav-links" aria-label="Seções">
       <a href="#home" data-s="home" class="on">Home</a>
-      <a href="#projetos" data-s="projetos">Projetos</a>
-      <a href="#pesquisa" data-s="pesquisa">Pesquisa</a>
-      <a href="#sobre" data-s="sobre">Sobre</a>
+      <a href="#sobre" data-s="sobre">Sobre mim</a>
       <a href="#por-onde-ando" data-s="por-onde-ando">Por onde ando</a>
+      <a href="#projetos" data-s="projetos">O que construo</a>
+      <a href="#pesquisa" data-s="pesquisa">Pesquisa</a>
     </nav>
   </div>
   <div class="nav-r">
     <a class="pill white" href="#pesquisa">Grafo de IA</a>
-    <a class="pill lime" href="#sobre">Sobre mim ↗</a>
+    <a class="pill lime" href="curriculo-livia-cardoso.pdf" target="_blank" rel="noopener">Currículo ↗</a>
   </div>
 </header>
 
@@ -271,8 +283,42 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
   <div class="hero-note">IA, dados e produto.<br>Clique em um projeto para abrir a apresentação.</div>
 </section>
 
+<section id="sobre">
+  <div class="sec-head"><h2 class="giant">Sobre mim</h2></div>
+  <div class="about">
+    <img src="img/ifood.jpg" alt="Livia no escritório do iFood">
+    <div class="txt">
+      <p>Sou Livia, estudante de Administração na PUC-Campinas e primeira colocada da turma. Trabalho na ponte entre negócio, dados e tecnologia: entendo o problema como quem gere e resolvo como quem constrói.</p>
+      <p>Na Siemens Energy sou estagiária de Inovação e Tecnologia: construo agentes internos, dashboards em Power BI e fluxos no Power Automate. Fora dela, fundei a RankUP e o Projeto Vênus, organizei um hackathon de IA com a WeHandle pela Liga de TI e levo o que aprendo em hackathons para produtos reais.</p>
+      <div class="rows">
+        <div><span>Agora</span><span>Inovação e Tecnologia na Siemens Energy · Fundadora e Product Lead da RankUP</span></div>
+        <div><span>Comunidade</span><span>Fundadora do Projeto Vênus · Liga de TI e Empreendedorismo · Qualitas Jr.</span></div>
+        <div><span>Prêmios</span><span>1º lugar e Destaque Individual no Hackathon Ambev · Prêmio ODS 16 (Enactus Brasil) · Selecionada entre 100 de 750 no Google AI for Social Impact · 1ª colocada da turma</span></div>
+        <div><span>Internacional</span><span>CUOA Business School, Itália · bolsa por mérito</span></div>
+      </div>
+    </div>
+    <aside class="contact" aria-label="Contato">
+      <div class="contact-k">Contato</div>
+      <a class="c-row" href="https://www.linkedin.com/in/l%C3%ADvia-cardoso-b788a62b3/"><span>LinkedIn</span><b>lívia-cardoso ↗</b></a>
+      <a class="c-row" href="mailto:liviasoranzcreator@gmail.com"><span>E-mail</span><b>liviasoranzcreator@gmail.com</b></a>
+      <a class="c-row" href="https://wa.me/5511995080164"><span>Telefone / WhatsApp</span><b>+55 (11) 99508-0164</b></a>
+      <a class="pill lime c-cv" href="curriculo-livia-cardoso.pdf" target="_blank" rel="noopener">Acesse meu currículo ↗</a>
+      <div class="contact-loc">Itatiba · Campinas, SP</div>
+    </aside>
+  </div>
+</section>
+
+<section class="beyond" id="por-onde-ando">
+  <div class="center">
+    <h2 class="giant">Por onde<br>ando</h2>
+    <p>Eventos, palcos, hackathons e os momentos no meio do caminho que me mantêm curiosa.</p>
+  </div>
+  <div class="field" id="field"></div>
+  <div class="scrollnote"><button class="circ" id="lb-open" aria-label="Ver fotos uma a uma">↔</button></div>
+</section>
+
 <section id="projetos">
-  <div class="sec-head"><h2 class="giant">Projetos</h2></div>
+  <div class="sec-head build-head"><div><h2 class="giant">O que construo</h2><p class="build-sub">Veja alguns casos.</p></div><a class="pill lime" href="curriculo-livia-cardoso.pdf" target="_blank" rel="noopener">Acesse meu currículo ↗</a></div>
   <div class="bento" id="bento"></div>
 </section>
 
@@ -318,37 +364,10 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
   <p class="lab-note">Amostra de <span id="g-n-edges"></span> relações da base do artigo, com foco em Anthropic, Google, Meta e Microsoft. O estudo completo no Gephi tem 208 atores e 344 relações. Grau, intermediação e comunidades (Louvain) são recalculados sobre esta amostra. Os três nós do Departamento de Defesa dos EUA foram unificados em “Pentágono (DoD)”.</p>
 </section>
 
-
-<section id="sobre">
-  <div class="sec-head"><h2 class="giant">Sobre</h2></div>
-  <div class="about">
-    <img src="img/ifood.jpg" alt="Livia no escritório do iFood">
-    <div class="txt">
-      <p>Sou Livia, estudante de Administração na PUC-Campinas e primeira colocada do curso. Trabalho na ponte entre negócio, dados e tecnologia: entendo o problema como quem gere e resolvo como quem constrói.</p>
-      <p>Na Siemens Energy faço BI e inovação, construindo dashboards em Power BI. Fora dela, estou fundando a RankUP, ajudo a liderar a Liga de TI da PUC-Campinas, onde organizei um hackathon de IA com a WeHandle, e levo o que aprendo em hackathons para produtos reais.</p>
-      <div class="rows">
-        <div><span>Agora</span><span>BI &amp; Inovação na Siemens Energy · Fundadora da RankUP</span></div>
-        <div><span>Comunidade</span><span>Liga de TI PUC-Campinas · Qualitas Júnior · Projeto Vênus</span></div>
-        <div><span>Prêmios</span><span>1º lugar Hackathon Ambev · 1ª colocada em Administração</span></div>
-        <div><span>Internacional</span><span>CUOA Business School, Itália</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="beyond" id="por-onde-ando">
-  <div class="center">
-    <h2 class="giant">Por onde<br>ando</h2>
-    <p>Eventos, palcos, hackathons e os momentos no meio do caminho que me mantêm curiosa.</p>
-  </div>
-  <div class="field" id="field"></div>
-  <div class="scrollnote"><button class="circ" id="lb-open" aria-label="Ver fotos uma a uma">↔</button></div>
-</section>
-
 <footer>
   <div>
     <div class="giant">Vamos construir?</div>
-    <div class="small">Livia Cardoso · Campinas, SP</div>
+    <div class="small"><a href="mailto:liviasoranzcreator@gmail.com">liviasoranzcreator@gmail.com</a> · <a href="https://www.linkedin.com/in/l%C3%ADvia-cardoso-b788a62b3/">LinkedIn</a> · +55 (11) 99508-0164</div>
   </div>
   <a class="pill lime" href="#home">Voltar ao topo ↑</a>
 </footer>
@@ -385,17 +404,17 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
 const $=id=>document.getElementById(id);
 const seq=(dir,n,pad=2)=>Array.from({length:n},(_,i)=>`img/${dir}/p-${String(i+1).padStart(pad,'0')}.jpg`);
 const P=[
- {id:"rankup",title:"RankUP",short:"Startup · Fundadora",role:"Fundadora · 2026",cover:"img/rankup/p-01.jpg",ink:"dark",w:"w7",
+ {id:"rankup",title:"RankUP",short:"Startup · Fundadora",role:"Fundadora e Product Lead · desde mai/2026",cover:"img/rankup/p-01.jpg",ink:"dark",w:"w7",
   slides:seq("rankup",14),
-  desc:"Startup B2B2C de verificação de competências, o ATS na era da IA. O estudante sobe o currículo, a IA mapeia as lacunas e indica um case de mercado simulado; ao resolvê-lo, recebe correção executiva e um badge verificado. Empresas recrutam por competência comprovada, não por palavra-chave.",
-  stack:["LLM de diagnóstico","Modelo de raciocínio","Busca vetorial","Figma","Netlify"],
-  skills:["Product discovery com pesquisa própria","Unit economics de produto com IA","Modelagem de negócio B2B2C","Pitch para banca de investimento"]},
- {id:"aresta",title:"Aresta",short:"Google DeepMind · PM/UX",role:"PM / UX · Hackathon AI for Social Impact, Google DeepMind",cover:"img/aresta/p-1.jpg",ink:"dark",w:"w5",
+  desc:"Startup B2B2C de verificação de competências, o ATS na era da IA. O estudante sobe o currículo, a IA mapeia as lacunas e indica um case de mercado simulado; ao resolvê-lo, recebe correção executiva e um badge verificado. Publicada em produção com Supabase, validada no Mescla Empreende e testada como agente avaliador num hackathon real, com 100% de convergência com a banca de especialistas.",
+  stack:["LLM de baixo custo no diagnóstico","Modelo de raciocínio","Busca vetorial","RAG","Supabase","Figma + design system","Netlify"],
+  skills:["Product discovery com 52 respondentes","Arquitetura de IA orientada a tokenomics","Modelagem de negócio B2B2C","Pitch para banca de investimento"]},
+ {id:"aresta",title:"Aresta",short:"Google DeepMind · PM/UX",role:"Product Lead (PM/UX) · Google DeepMind AI for Social Impact Hackathon, abr/2026",cover:"img/aresta/p-1.jpg",ink:"dark",w:"w5",
   slides:seq("aresta",8,1),
-  desc:"Mentora de carreira no WhatsApp para quem acha que tecnologia não é para si. Trilha customizada, mensagens por áudio e mentoria prática, sobre uma arquitetura pensada para personalização fluida e escala. Construída em time de quatro, com foco no ODS 8.",
+  desc:"Assistente de reskilling em IA no WhatsApp para trabalhadores da classe C, com trilhas personalizadas de IA na prática e suporte por áudio. Liderei as jornadas e o blueprint e coordenei o time de engenharia de quatro pessoas na integração da Gemini API ao WhatsApp com RAG: demo funcional construída do zero em uma tarde. Selecionada entre 100 de 750 candidaturas.",
   stack:["WhatsApp (API third-party)","Backend","Gemini API","RAG"],
   skills:["Product management em hackathon","UX para baixa literacia digital","Arquitetura de produto com LLM","Impacto social mensurável"]},
- {id:"bees",title:"BEES PRO",short:"Hackathon Ambev · 1º lugar",role:"Hackathon Ambev · 1º lugar",cover:"img/bees/p-03.jpg",ink:"light",w:"w5",
+ {id:"bees",title:"BEES PRO",short:"Hackathon Ambev · 1º lugar",role:"Hackathon Ambev, nov/2025 · 1º lugar e Destaque Individual",cover:"img/bees/p-03.jpg",ink:"light",w:"w5",
   slides:seq("bees",18),
   desc:"Plano para levar o NPS do BEES de 53 para 59 em três meses. Cruzamos as pesquisas da Ambev com pesquisa própria, nos cadastramos e fizemos pedidos para viver a jornada, e atacamos logística, preço e materiais com bot pós-entrega, rastreamento e controle de qualidade por escaneamento.",
   stack:["Análise de NPS","Mapa de jornada","Bot pós-entrega","Notificações de rastreio","KPIs por iniciativa"],
@@ -405,11 +424,11 @@ const P=[
   desc:"A dopamina do fast fashion aplicada ao consumo consciente: um marketplace com UX de alta retenção, cálculo de impacto por marca, cashback sustentável e um tracker gamificado de economia, ligando jovens de 18 a 35 anos a marcas sustentáveis e brechós.",
   stack:["Marketplace","Gamificação","Cálculo de carbono","Cashback ESG","Data & Ads"],
   skills:["Pesquisa e dimensionamento de mercado","Modelo de receita por comissão","Roadmap de produto","Pitch deck"]},
- {id:"venus",title:"Vênus",short:"Tecnologia social",role:"Projeto Vênus · Identidade e mídia kit",cover:"img/venus/p03.jpg",ink:"light",w:"w6",
+ {id:"venus",title:"Vênus",short:"Fundadora · Prêmio ODS 16",role:"Fundadora · Projeto Vênus, desde mai/2025",cover:"img/venus/p03.jpg",ink:"light",w:"w6",
   slides:["img/venus/p01.jpg","img/venus/p02.jpg","img/venus/p03.jpg","img/venus/p04.jpg","img/venus/p11.jpg","img/venus/p12.jpg","img/venus/p14.jpg"],
-  desc:"Identidade visual e estrutura do mídia kit da Vênus, plataforma de tecnologia social: marca, público-alvo, missão e a forma de comunicar resultados e impacto para parceiros.",
-  stack:["Identidade visual","Mídia kit","Branding"],
-  skills:["Direção de marca","Comunicação de impacto","Narrativa para parceiros"]},
+  desc:"Produto de tecnologia social (UX e educação) contra a vulnerabilidade feminina. Idealizei e lidero um time multidisciplinar de 14 pessoas, com MVP validado com ONGs e a rede Enactus. Venceu o Prêmio ODS 16 no Enactus Brasil e ficou no Top 80 do Desafio LED.",
+  stack:["UX","Educação","Identidade visual","Mídia kit"],
+  skills:["Liderança de time de 14 pessoas","Validação de MVP com ONGs","Comunicação de impacto"]},
  {id:"artigo",title:"Poder na rede de IA",short:"Pesquisa · Gephi + Graph RAG",role:"Artigo · PUC-Campinas 2026",cover:null,ink:"light",w:"w6",
   slides:seq("artigo",8),
   desc:"Mapeamento do ecossistema global de LLMs com Análise de Redes Sociais no Gephi. Mostra que as plataformas de modelos dominam o volume de conexões, mas quem controla o sistema são intermediários de litografia, dados e energia.",
@@ -495,10 +514,10 @@ $('viewer').addEventListener('touchend',e=>{if(sx0===null)return;const d=e.chang
 
 /* ---------- por onde ando: scattered photos ---------- */
 const PH=[
- ["g1_1",6,90,210,-.18],["g2_0",23,36,300,.12],["g3_3",46,64,150,-.3,1],["g1_2",59,118,190,.2],["g2_4",76,48,262,-.1],
+ ["g1_1",6,90,210,-.18],["hackathon-ia",21,30,330,.12],["g3_3",46,64,150,-.3,1],["g1_2",59,118,190,.2],["g2_4",76,48,262,-.1],
  ["g1_0",2.5,380,190,.24],["g3_1",17,322,158,-.22],["g3_2",35,250,140,.3,1],["g3_5",90,236,140,.16,1],["g1_4",69,336,330,-.16],
  ["g3_0",13,560,170,.1],["g3_6",86,520,170,-.26],["g2_1",4,760,150,-.12],["g2_5",73,706,232,.22],["g2_2",61,792,160,-.3,1],
- ["g1_5",10,930,200,.18],["g2_3",27,862,240,-.08],["g3_7",45,902,180,.26],["g3_4",57,968,220,-.2],["g1_6",82,902,170,.12],["g1_3",1,1010,130,-.24]
+ ["g1_5",10,930,200,.18],["g2_3",27,862,240,-.08],["g3_7",45,902,180,.26],["g3_4",54,940,210,-.2],["g1_6",82,902,170,.12],["g1_3",1,1010,130,-.24],["cuoa",36,1010,190,-.1],["enactus",62,1060,290,.08]
 ];
 const field=$('field');
 const phEls=PH.map(([f,l,t,w,s,bl],i)=>{
