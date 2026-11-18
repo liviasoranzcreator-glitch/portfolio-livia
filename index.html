@@ -219,12 +219,12 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
 
 <header class="nav">
   <div class="nav-l">
-    <a class="mark" href="#home" aria-label="Início">
+    <a class="mark" href="#sobre" aria-label="Início">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3v15.5h14" stroke="#0C0A08" stroke-width="2.4" stroke-linecap="round"/><circle cx="17.5" cy="6.5" r="2.6" fill="#0C0A08"/></svg>
     </a>
     <nav class="nav-links" aria-label="Seções">
-      <a href="#home" data-s="home" class="on">Home</a>
-      <a href="#sobre" data-s="sobre">Sobre mim</a>
+      <a href="#sobre" data-s="sobre" class="on">Sobre mim</a>
+      <a href="#home" data-s="home">Destaques</a>
       <a href="#por-onde-ando" data-s="por-onde-ando">Por onde ando</a>
       <a href="#projetos" data-s="projetos">O que construo</a>
     </nav>
@@ -233,12 +233,6 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
     <a class="pill lime" href="curriculo-livia-cardoso.pdf" target="_blank" rel="noopener">Currículo ↗</a>
   </div>
 </header>
-
-<section class="hero" id="home" aria-label="Projetos em destaque">
-  <div class="track" id="track"></div>
-  <h1 class="wordmark">livia.cardoso</h1>
-  <div class="hero-note">IA, dados e produto.<br>Clique em um projeto para abrir a apresentação.</div>
-</section>
 
 <section id="sobre">
   <div class="sec-head"><h2 class="giant">Sobre mim</h2></div>
@@ -263,6 +257,12 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
       <div class="contact-loc">Itatiba · Campinas, SP</div>
     </aside>
   </div>
+</section>
+
+<section class="hero" id="home" aria-label="Projetos em destaque">
+  <div class="track" id="track"></div>
+  <h1 class="wordmark">livia.cardoso</h1>
+  <div class="hero-note">IA, dados e produto.<br>Clique em um projeto para abrir a apresentação.</div>
 </section>
 
 <section class="beyond" id="por-onde-ando">
@@ -290,7 +290,7 @@ footer .small{color:var(--mute);font-size:14px;font-weight:300;margin-top:16px}
     <div class="giant">Vamos construir?</div>
     <div class="small"><a href="mailto:liviasoranzcreator@gmail.com">liviasoranzcreator@gmail.com</a> · <a href="https://www.linkedin.com/in/l%C3%ADvia-cardoso-b788a62b3/">LinkedIn</a> · +55 (11) 99508-0164</div>
   </div>
-  <a class="pill lime" href="#home">Voltar ao topo ↑</a>
+  <a class="pill lime" href="#sobre">Voltar ao topo ↑</a>
 </footer>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
@@ -368,7 +368,9 @@ const cards=P.map((p,i)=>{
   track.appendChild(b);return b;
 });
 let W=innerWidth,H=innerHeight,cw=0,spacing=0,total=0,offset=0,speed=46,target=46,last=performance.now(),dragMoved=false;
-const t0=performance.now(),INTRO=2300;let drift=0;
+let t0=null;const INTRO=2300;let drift=0;
+const heroEl=document.getElementById('home');
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&t0===null)t0=performance.now()}),{threshold:.35}).observe(heroEl);
 function sizeHero(){W=innerWidth;H=track.clientHeight;cw=Math.round(Math.min(520,Math.max(250,W*(W<900?.74:.34))));
   track.style.setProperty('--cw',cw+'px');spacing=cw*1.42;total=spacing*cards.length}
 sizeHero();addEventListener('resize',sizeHero);
@@ -377,7 +379,7 @@ if(reduce){speed=target=0}
 function frame(now){
   const dt=Math.min(.05,(now-last)/1000);last=now;
   speed+=(target-speed)*Math.min(1,dt*4);drift+=speed*dt;
-  const ip=reduce?1:Math.min(1,(now-t0)/INTRO),ie=1-Math.pow(1-ip,4);
+  const ip=reduce?1:(t0===null?0:Math.min(1,(now-t0)/INTRO)),ie=1-Math.pow(1-ip,4);
   if(dx0===null)offset=drift-(1-ie)*W*1.35;
   cards.forEach((c,i)=>{
     let x=((i*spacing-offset)%total+total)%total-spacing;
@@ -492,7 +494,7 @@ addEventListener('keydown',e=>{
 /* nav state */
 const links=[...document.querySelectorAll('.nav-links a')];
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.dataset.s===en.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
-['home','sobre','por-onde-ando','projetos'].forEach(id=>io.observe($(id)));
+['sobre','home','por-onde-ando','projetos'].forEach(id=>io.observe($(id)));
 </script>
 </body>
 </html>
